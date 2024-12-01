@@ -5,6 +5,10 @@ def is_vokal(x):
 
 def hanacaraka(x):
     mapping = {
+        "h": "r", "n": "k", "c": "d", "t": "l", "s": "m",
+        "w": "g", "b": "j", "ng": "y", "p": "ny", "r": "h",
+        "k": "n", "d": "c", "l": "t", "m": "s", "g": "w",
+        "j": "b", "y": "ng", "ny": "p",
         "H": "R", "N": "K", "C": "D", "T": "L", "S": "M",
         "W": "G", "B": "J", "NG": "Y", "P": "NY", "R": "H",
         "K": "N", "D": "C", "L": "T", "M": "S", "G": "W",
@@ -17,22 +21,22 @@ def enkripsi(x):
     i = 0
 
     while i < len(x):
-        c = x[i].upper()
+        c = x[i]
         s_input = c
 
-        c_before = x[i - 1].upper() if i > 0 else ""
-        c_after = x[i + 1].upper() if i < len(x) - 1 else ""
+        c_before = x[i - 1] if i > 0 else ""
+        c_after = x[i + 1] if i < len(x) - 1 else ""
 
         if c.isalpha() and not is_vokal(c):
-            if c_before == 'N' and c == 'Y':
-                s_input = "NY"
-            elif c_before == 'N' and c == 'G':
-                s_input = "NG"
-            elif c == 'N' and c_after == 'Y':
-                s_input = "NY"
+            if c_before.lower() == 'n' and c.lower() == 'y':
+                s_input = c_before + c
+            elif c_before.lower() == 'n' and c.lower() == 'g':
+                s_input = c_before + c
+            elif c.lower() == 'n' and c_after.lower() == 'y':
+                s_input = c + c_after
                 i += 1
-            elif c == 'N' and c_after == 'G':
-                s_input = "NG"
+            elif c.lower() == 'n' and c_after.lower() == 'g':
+                s_input = c + c_after
                 i += 1
 
         s_hasil = hanacaraka(s_input)
