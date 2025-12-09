@@ -2,7 +2,7 @@
 
 A simple Streamlit app to encrypt using hanacaraka algorithm
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hanacaraka.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hana-caraka.streamlit.app/)
 
 ### How to run it on your own machine
 
